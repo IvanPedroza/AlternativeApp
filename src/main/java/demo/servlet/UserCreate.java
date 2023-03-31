@@ -75,7 +75,6 @@ public class UserCreate extends HttpServlet {
 				throw new IOException(e);
 	        }
         }
-        
         req.getRequestDispatcher("/UserCreate.jsp").forward(req, resp);
     }
 }

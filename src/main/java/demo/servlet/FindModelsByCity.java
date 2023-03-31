@@ -42,9 +42,7 @@ public class FindModelsByCity extends HttpServlet{
             try {
                 carModels = carModelDao.getPopularModelsByCity(city);
                 req.setAttribute("carModels", carModels);
-
-                req.getRequestDispatcher("/FindCarByCity.jsp").forward(req, resp);
-            } catch (SQLException | ServletException | IOException e) {
+            } catch (SQLException e) {
                 e.printStackTrace();
                 throw new RuntimeException();
             }
@@ -53,6 +51,7 @@ public class FindModelsByCity extends HttpServlet{
             // in the input box when rendering FindCarByCity.jsp.
             messages.put("previousCity", city);
         }
+        req.getRequestDispatcher("/FindCarByCity.jsp").forward(req, resp);
     }
 	
 	@Override

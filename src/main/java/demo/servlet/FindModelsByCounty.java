@@ -42,13 +42,13 @@ public class FindModelsByCounty extends HttpServlet{
             try {
                 carModels = carModelDao.getPopularModelsByCounty(county);
                 req.setAttribute("carModels", carModels);
-                req.getRequestDispatcher("/FindCarByCounty.jsp").forward(req, resp);
-            } catch (SQLException|IOException e) {
+            } catch (SQLException e) {
                 e.printStackTrace();
                 throw new RuntimeException(e);
             }
             messages.put("success", "Displaying results for " + county);
         }
+        req.getRequestDispatcher("/FindCarByCounty.jsp").forward(req, resp);
     }
 	
 	@Override

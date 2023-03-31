@@ -22,6 +22,8 @@
       <element id="file-copy" path="$PROJECT_DIR$/web/UserCreate.jsp" />
       <element id="file-copy" path="$PROJECT_DIR$/web/UserDelete.jsp" />
       <element id="file-copy" path="$PROJECT_DIR$/web/UserUpdate.jsp" />
+      <element id="file-copy" path="$PROJECT_DIR$/web/FindCarByMake.jsp" />
+      <element id="file-copy" path="$PROJECT_DIR$/web/FindCarByPrice.jsp" />
     </root>
   </artifact>
 </component>

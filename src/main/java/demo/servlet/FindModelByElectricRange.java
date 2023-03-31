@@ -37,18 +37,12 @@ public class FindModelByElectricRange extends HttpServlet {
         if (minRangeStr == null || minRangeStr.trim().isEmpty()){
             messages.put("success", "Please enter valid minimum and maximum electric ranges.");
         } else {
-            try {
-                int minRange = Integer.parseInt(minRangeStr);
-                carModels = carModelDao.getModelsByElectricRange(minRange);
-                messages.put("success", "Displaying results for electric ranges up to: " + minRange);
-                req.setAttribute("carModels", carModels);
-                req.getRequestDispatcher("/FindModelByElectricRange.jsp").forward(req, resp);
-            } catch (ServletException | IOException e) {
-                messages.put("success", "Please enter valid integer values for electric ranges.");
-                e.printStackTrace();
-                throw new RuntimeException(e);
-            }
+            int minRange = Integer.parseInt(minRangeStr);
+            carModels = carModelDao.getModelsByElectricRange(minRange);
+            messages.put("success", "Displaying results for electric ranges up to: " + minRange);
+            req.setAttribute("carModels", carModels);
         }
+        req.getRequestDispatcher("/FindModelByElectricRange.jsp").forward(req, resp);
     }
 
     @Override

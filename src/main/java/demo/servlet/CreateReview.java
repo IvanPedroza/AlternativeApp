@@ -52,7 +52,6 @@ public class CreateReview extends HttpServlet {
                 e.printStackTrace();
                 request.setAttribute("message", message);
             }
-
         }
             // Redirect back to the model details page
         request.getRequestDispatcher("/CreateReview.jsp").forward(request, response);
