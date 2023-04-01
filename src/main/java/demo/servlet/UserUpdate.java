@@ -38,9 +38,9 @@ public class UserUpdate extends HttpServlet {
         req.setAttribute("messages", messages);
 
         // Retrieve user and validate.
-        String userName = req.getParameter("username");
+        String userName = req.getParameter("userName");
         if (userName == null || userName.trim().isEmpty()) {
-            messages.put("success", "Please enter a valid UserName.");
+            messages.put("success", "Please enter a UserName.");
         } else {
         	try {
         		User user = userDao.getUserByUsername(userName);
@@ -48,17 +48,13 @@ public class UserUpdate extends HttpServlet {
         			messages.put("success", "UserName does not exist. No update to perform.");
         		} else {
         			String newPassword = req.getParameter("password");
-        			if (newPassword == null || newPassword.trim().isEmpty()) {
-        	            messages.put("success", "Please enter a valid password.");
+					String newEmail = req.getParameter("email");
+        			if (newPassword == null || newPassword.trim().isEmpty() ||
+							newEmail == null || newEmail.trim().isEmpty()) {
+        	            messages.put("success", "Please enter a valid email and password.");
         	        } else {
         	        	user = userDao.updatePassword(user, newPassword);
-        	        	messages.put("success", "Successfully updated " + userName);
-        	        }
-        			String newEmail = req.getParameter("email");
-        			if (newEmail == null || newEmail.trim().isEmpty()) {
-        	            messages.put("success", "Please enter a valid password.");
-        	        } else {
-        	        	user = userDao.updateEmail(user, newEmail);
+						user = userDao.updateEmail(user, newEmail);
         	        	messages.put("success", "Successfully updated " + userName);
         	        }
         		}

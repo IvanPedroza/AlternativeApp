@@ -62,7 +62,7 @@ public class UserDao {
 	}
 	
 	public User getUserByUsername(String username)throws SQLException {
-		String selectUser = "SELECT Username, Password, FirstName, LastName, Email, PhoneNumber, AddressLine1, AddressLine2, LocationId FROM Users WHERE Username=?;";
+		String selectUser = "SELECT * FROM Users WHERE Username=?;";
 		try (Connection connection = connectionManager.getConnection();
 			 PreparedStatement selectStmt = connection.prepareStatement(selectUser, Statement.RETURN_GENERATED_KEYS);) {
 

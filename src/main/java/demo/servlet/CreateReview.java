@@ -33,7 +33,6 @@ public class CreateReview extends HttpServlet {
 
         if (modelId == null || modelId.isEmpty()
             || rating == null || rating.isEmpty()) {
-            System.out.println("Initial state");
         } else {
             model = Integer.parseInt(modelId);
             String userName = request.getParameter("userName");
